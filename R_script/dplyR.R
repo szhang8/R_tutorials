@@ -12,8 +12,9 @@ df_selected <- df %>%
   arrange(desc(proportion_cnv_chr3), desc(proportion_cnv_chr5)) %>%
   mutate(chr3.log = log(proportion_cnv_chr3)) %>%
   mutate(chr5.log = log(proportion_cnv_chr5)) %>%
-  arrange(desc(chr3.log), desc(chr5.log)) 
+  arrange(desc(chr3.log), desc(chr5.log))
 
 
-df_sum <- df_selected %>% group_by(HTO_maxID) %>% summarize(mean_value = mean(proportion_cnv_chr5, na.rm = TRUE)) 
+df_sum <- df_selected %>% group_by(HTO_maxID) %>% 
+  summarize(mean_value = mean(proportion_cnv_chr5, na.rm = TRUE))
 
